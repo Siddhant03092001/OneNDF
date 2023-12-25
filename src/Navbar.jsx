@@ -1,12 +1,18 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [isNavbarVisible, setNavbarVisible] = useState(false);
 
-    const navigate = useNavigate();
+  const handleToggleClick = () => {
+    setNavbarVisible(!isNavbarVisible);
+  };
 
-    const handleOnclick =() => {
-        navigate("/Registration");
-    }
+  const handleNavItemClick = (path) => {
+    navigate(path);
+    setNavbarVisible(false); 
+  };
 
   return (
     <>
@@ -18,32 +24,39 @@ const Navbar = () => {
           <button
             className="navbar-toggler"
             type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
+            onClick={handleToggleClick}
           >
             <span className="navbar-toggler-icon"></span>
           </button>
-          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <div
+            className={`collapse navbar-collapse ${
+              isNavbarVisible ? 'show' : ''
+            }`}
+            id="navbarSupportedContent"
+          >
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <a className="nav-link active" aria-current="page" href="#">
+                <a
+                  className="nav-link active"
+                  aria-current="page"
+                  href="#"
+                  onClick={() => handleNavItemClick('/')}
+                >
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a
+                  className="nav-link"
+                  href="#"
+                  onClick={() => handleNavItemClick('/about')}
+                >
                   About
                 </a>
               </li>
-              <li className="nav-item">
-                
-              </li>
             </ul>
-            <a className="abc1" onClick={handleOnclick}>
-                  Sign up
+            <a className="abc1" onClick={() => handleNavItemClick('/Registration')}>
+              Sign up
             </a>
             <form className="d-flex" role="search">
               <input
@@ -57,7 +70,6 @@ const Navbar = () => {
               </button>
             </form>
           </div>
-          
         </div>
       </nav>
     </>

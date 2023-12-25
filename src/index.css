@@ -1,0 +1,64 @@
+li:hover{
+  
+  cursor: pointer;
+}
+
+
+li.nav-item{
+  
+  font-weight: 500;
+  font-size: 18px;
+}
+
+body{
+  background-color: whitesmoke;
+}
+
+.abc{
+  color: rgb(2, 33, 100);
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 28px;
+  margin-right: 20px;
+}
+
+
+.abc1{
+  color: rgb(2, 33, 100);
+  text-decoration: none;
+  font-weight: 400;
+  font-size: 18px;
+  margin-right: 20px;
+  cursor: pointer;
+  border: 3px solid black;
+  border-radius: 10px;
+  padding: 3px;
+}
+.abc1:hover{
+  background-color: grey;
+  scale: 1.1;
+  color: white;
+ 
+
+}
+
+.xyz{
+  margin-top: 40px;
+}
+
+
+.pqr{
+  justify-content: center;
+  border-radius: 10px;
+  border: 2px solid black;
+  margin-top: 30px;
+  width: 500px;
+  
+  
+  
+}
+
+
+.pqr1{
+  list-style-type: none;
+}
